@@ -1,6 +1,6 @@
 package com.arek.lawnmowerbot;
 
-import com.arek.lawnmowerbot.service.ImageGenerator;
+import com.arek.lawnmowerbot.model.ImageGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

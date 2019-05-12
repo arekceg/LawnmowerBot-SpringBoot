@@ -4,6 +4,7 @@ import com.restfb.*;
 import com.restfb.types.GraphResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -13,14 +14,17 @@ import java.nio.file.Files;
 @Component
 public class ImagePublisher {
 
+	private final String _PAGEID = System.getenv("PAGEID_LAWN");
+	private final String _TOKEN = System.getenv("TOKEN");
+	private final FacebookClient fbClient;
+
 	@Value("${image.publish}")
 	private boolean publishImage;
 
-	//	private final String _PAGEID = System.getenv("PAGEID_LAWN");
-	private static final String _PAGEID = "lawnmowerbot1";
-	//	private final String _TOKEN = System.getenv("TOKEN");
-	private final String _TOKEN = "EAACVS6jUj0QBAPi1ZAVc6PudfgQkZAlenY3PN17sGeDElCzUe07ZAA5nwqtXZCuxvuk2XqTpiz6YQmEnahgXrqiV4F2mrmxrifpUTHn2AqEuMuphREoBSZBJ8ZAKuatoYFehMAJnoVQsTp1Cf9Uwmke9mPeEZBiP4ZAVAXpfNK3p8gZDZD";
-	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
+	public ImagePublisher() {
+		this.fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
+	}
+
 
 	void publishImage(File image, String description) throws Exception {
 		if (publishImage) {

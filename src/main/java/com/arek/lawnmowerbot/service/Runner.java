@@ -1,6 +1,7 @@
 package com.arek.lawnmowerbot.service;
 
 import com.arek.lawnmowerbot.model.DescriptionGenerator;
+import com.arek.lawnmowerbot.model.ImageGenerator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,8 +18,8 @@ public class Runner {
 	private final ImageGenerator imageGenerator;
 	private final ImagePublisher imagePublisher;
 
-	@PostConstruct
-//	@Scheduled(fixedRate = 3600000)
+//	@PostConstruct
+	@Scheduled(fixedRate = 3600000)
 	public void run() throws Exception {
         log.info("Runner method called");
 		File randomImage = imageGenerator.getRandomImage();
