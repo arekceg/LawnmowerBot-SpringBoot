@@ -1,4 +1,4 @@
-package com.arek.lawnmowerbot;
+package com.arek.lawnmowerbot;;
 
 import com.arek.lawnmowerbot.model.DescriptionGenerator;
 import lombok.extern.slf4j.Slf4j;

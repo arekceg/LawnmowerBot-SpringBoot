@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
+import java.io.InputStream;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -20,7 +21,7 @@ public class ImageGeneratorTest {
 
 	@Test
 	public void contextLoads() throws Exception {
-		File testImage = imageGenerator.getRandomImage();
+		InputStream testImage = imageGenerator.getRandomImage();
 		assert testImage!=null;
 	}
 

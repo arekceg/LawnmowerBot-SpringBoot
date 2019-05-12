@@ -1,11 +1,16 @@
 package com.arek.lawnmowerbot.model;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -53,7 +58,9 @@ public class DescriptionGenerator {
 	}
 
 	private String pickFrom(Resource resource) throws IOException {
-		List<String> namesList = Files.readAllLines(resource.getFile().toPath());
-		return namesList.get(rand.nextInt(namesList.size()));
+		BufferedReader br = new BufferedReader(new InputStreamReader(resource.getInputStream()));
+		List<String> inputList = new ArrayList<>();
+		inputList.add(br.readLine());
+		return inputList.get(rand.nextInt(inputList.size()));
 	}
 }

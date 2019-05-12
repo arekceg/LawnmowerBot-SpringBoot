@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
+import java.io.InputStream;
 
 @Slf4j
 @Component
@@ -21,8 +22,9 @@ public class Runner {
 //	@PostConstruct
 	@Scheduled(fixedRate = 3600000)
 	public void run() throws Exception {
-        log.info("Runner method called");
-		File randomImage = imageGenerator.getRandomImage();
+        log.info("===================================");
+		log.info("Scheduled runner method called");
+		InputStream randomImage = imageGenerator.getRandomImage();
 		String randomDescription = descriptionGenerator.makeDescription();
 		imagePublisher.publishImage(randomImage, randomDescription);
 	}

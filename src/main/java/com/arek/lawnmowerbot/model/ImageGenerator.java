@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -25,13 +26,13 @@ public class ImageGenerator {
 				.getResources("classpath:static/img/*.jpg");
 	}
 
-	public File getRandomImage() {
+	public InputStream getRandomImage() {
 		Random random = new Random();
 		try {
 			Resource[] allImages = loadImages();
-			File randomImage = allImages[random.nextInt(allImages.length)].getFile();
-			Path usedPath = Paths.get(randomImage.getParent() + "/used/" + randomImage.getName());
-			return (Files.move(randomImage.toPath(), usedPath)).toFile();
+			Resource randomImage = allImages[random.nextInt(allImages.length)];
+			InputStream randomImageStream = randomImage.getInputStream();
+			return randomImageStream;
 		} catch (IOException e) {
 			log.error(e.getMessage());
 		}
