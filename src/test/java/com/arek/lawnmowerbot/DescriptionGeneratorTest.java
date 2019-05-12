@@ -1,4 +1,4 @@
-package com.arek.lawnmowerbot;;
+package com.arek.lawnmowerbot;
 
 import com.arek.lawnmowerbot.model.DescriptionGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -18,9 +20,12 @@ public class DescriptionGeneratorTest {
 
 	@Test
 	public void contextLoads() throws Exception {
-		String testDescription = descriptionGenerator.makeDescription();
-		log.info("testDescription = {}",testDescription);
-		assert testDescription!=null;
+		for (int i = 0; i < 10; i++) {
+			String testDescription = descriptionGenerator.makeDescription();
+			log.info("testDescription = {}", testDescription);
+			assert testDescription != null;
+
+		}
 	}
 
 }
