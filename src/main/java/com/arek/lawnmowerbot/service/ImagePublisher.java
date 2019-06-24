@@ -29,7 +29,6 @@ public class ImagePublisher {
 
 	void publishImage(InputStream image, String description) throws Exception {
 		if (publishImage) {
-
 			GraphResponse imagePublishedResponse =
 					fbClient.publish(_PAGEID + "/photos", GraphResponse.class,
 							BinaryAttachment.with("lawnmowerImage",image.readAllBytes() ),

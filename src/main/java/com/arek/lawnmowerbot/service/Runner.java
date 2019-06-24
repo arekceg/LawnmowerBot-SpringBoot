@@ -24,8 +24,6 @@ public class Runner {
 	public void run() throws Exception {
         log.info("===================================");
 		log.info("Scheduled runner method called");
-		InputStream randomImage = imageGenerator.getRandomImage();
-		String randomDescription = descriptionGenerator.makeDescription();
-		imagePublisher.publishImage(randomImage, randomDescription);
+		imagePublisher.publishImage(imageGenerator.getRandomImage(), descriptionGenerator.makeDescription());
 	}
 }

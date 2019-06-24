@@ -21,9 +21,8 @@ public class DescriptionGeneratorTest {
 	@Test
 	public void contextLoads() throws Exception {
 		for (int i = 0; i < 10; i++) {
-			String testDescription = descriptionGenerator.makeDescription();
-			log.info("testDescription = {}", testDescription);
-			assert testDescription != null;
+			log.info("testDescription = {}", descriptionGenerator.makeDescription());
+			assert descriptionGenerator.makeDescription() != null;
 
 		}
 	}

@@ -29,10 +29,8 @@ public class ImageGenerator {
 	public InputStream getRandomImage() {
 		Random random = new Random();
 		try {
-			Resource[] allImages = loadImages();
-			Resource randomImage = allImages[random.nextInt(allImages.length)];
-			InputStream randomImageStream = randomImage.getInputStream();
-			return randomImageStream;
+			Resource randomImage = loadImages()[random.nextInt(loadImages().length)];
+			return randomImage.getInputStream();
 		} catch (IOException e) {
 			log.error(e.getMessage());
 		}
