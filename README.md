@@ -2,7 +2,7 @@
 LawnmowerBot rewritten in SpringBoot
 https://www.facebook.com/lawnmowerbot1
 
-Simple facebook bot build with RestFB. Hosted on GCP.
+Simple facebook bot built with RestFB. Hosted on GCP.
 
 The idea came to me when, by some weird ad-targeting mischief, I was bombarded with land mower ads and realized that they all look like they had distinct personalities. I thought it would be fun to assign them names, nicknames and therefore - a character.
 
