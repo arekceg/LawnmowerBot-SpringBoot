@@ -19,8 +19,7 @@ public class Runner {
 	private final ImageGenerator imageGenerator;
 	private final ImagePublisher imagePublisher;
 
-//	@PostConstruct
-	@Scheduled(fixedRate = 3600000)
+	@Scheduled(fixedRate = 3600000*4)
 	public void run() throws Exception {
         log.info("===================================");
 		log.info("Scheduled runner method called");
